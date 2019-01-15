@@ -20,7 +20,10 @@ export default class Edit extends Component {
   }
 
   updatePost() {
-
+    const {text} = this.state;
+    const {id,updatePostFn, hideEdit} = this.props;
+    updatePostFn(id,text);
+    hideEdit();
   }
 
   render() {
@@ -32,7 +35,7 @@ export default class Edit extends Component {
       <section className="Edit__parent">
 
         {/* This is the input field where you can edit the text */}
-        <textarea className="Edit__textarea" value={ text } onChange={ ( e ) => this.updateText( e.target.value ) }></textarea>
+        <textarea className="Edit__textarea" type="text" value={ text } onChange={ ( e ) => this.updateText( e.target.value ) }></textarea>
 
         <div className="Edit__controls">
           {/* This saves your changes made */}
